@@ -51,7 +51,24 @@ public class BST {
 
 
     public Node search(int key) {
-        return root; 
+        return search(root, key); 
+    }
+    private Node search(Node n, int key) {
+        //is the node in the tree?
+        if(n == null) {
+            return null; 
+        }
+        //if we find the key
+        if(n.key == key) {
+            return n; 
+        }
+        //traversing the tree
+        else if(n.key > key) {
+            return search(n.left, key); 
+        }
+        else {
+            return search(n.right, key); 
+        }
     }
 
 
