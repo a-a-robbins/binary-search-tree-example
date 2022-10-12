@@ -20,12 +20,22 @@ public class BST {
 
     //BST Methods
     public int getMin() {
-        return 1; 
+        Node current = root; 
+        //traverse the tree
+        while(current.left != null) {
+            current = current.left;
+        }
+        return current.key; 
     }
 
 
     public int getMax() {
-        return 1; 
+        Node current = root; 
+        //traverse the tree
+        while(current.right != null) {
+            current = current.right;
+        }
+        return current.key; 
     }
 
 
@@ -73,7 +83,36 @@ public class BST {
 
 
     public Node delete(int key) {
-        return root; 
+        return delete(root, key); 
+    }
+    private Node delete(Node n, int key) {
+        //is the node in the tree?
+        if(n == null) {
+            return null; 
+        }
+        //traversing
+        if(n.key > key) {
+            n.left = delete(n.left, key);
+        }
+        else if(n.key < key) {
+            n.right = delete(n.right, key); 
+        }
+        //we found target node
+        else {
+            //case 1: node is a leaf
+            if(n.left == null && n.right == null) {
+                return null; 
+            }
+            //case 2: node has 1 subtree (1 child)
+            if(n.left == null) {
+                return n.right;
+            }
+            else if(n.right == null) {
+                return n.left;
+            }
+            //case 3: node has 2 subtrees (2 children)
+
+        }
     }
 
 
