@@ -23,29 +23,53 @@ public class BST {
         return 1; 
     }
 
+
     public int getMax() {
         return 1; 
     }
 
-    public void insert(int key) {
 
+    public void insert(int key) {
+        root = insert(root, key); 
     }
+    private Node insert(Node n, int key) {
+        //is the tree empty?
+        if(root == null) {
+            root = new Node(key); 
+            return root;
+        }
+        //traversing the tree for the right spot
+        if(n.key > key) {
+            n.left = insert(n.left, key); 
+        }
+        else {
+            n.right = insert(n.right, key);
+        }
+
+        return root; 
+    }
+
 
     public Node search(int key) {
         return root; 
     }
 
+
     public Node delete(int key) {
         return root; 
     }
+
 
     public int findCeiling(int input) {
         return 1; 
     }
 
+
     public int findFloor(int input) {
         return 1; 
     }
+
+    //driver
 
     public static void main(String[] args) {
         
