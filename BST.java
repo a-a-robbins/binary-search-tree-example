@@ -128,10 +128,52 @@ public class BST {
         return 1; 
     }
 
-    //driver
+    //traversal methods
 
+    //traversal 1: post-order
+    //biggest -> smallest
+    public void printPostOrder() {
+        printPostOrder(root); 
+    }
+    private void printPostOrder(Node n) {
+        //is the node null?
+        if(n == null) return; 
+        printPostOrder(n.left); 
+        printPostOrder(n.right); 
+        System.out.println(n.key + " "); 
+    }
+
+    public void printPreOrder() {
+        printPreOrder(root); 
+    }
+    private void printPreOrder(Node n) {
+        //is the node null?
+        if(n == null) return; 
+        System.out.print(n.key + " "); 
+        printPreOrder(n.left); 
+        printPreOrder(n.right); 
+    }
+
+    public void printInOrder() {
+        printInOrder(root); 
+    }
+    private void printInOrder(Node n) {
+        //is the node null?
+        if(n == null) return; 
+        printInOrder(n.left); 
+        System.out.print(n.key + " "); 
+        printInOrder(n.right); 
+    }
+
+    //traversal 2: in-order
+    //in order from tree, smallest -> biggest
+
+    //traversal 3: pre-order
+    //root + smallest -> biggest
+
+    //driver
     public static void main(String[] args) {
-        
+        Node newNode = new Node(14); 
     }
     
 }
