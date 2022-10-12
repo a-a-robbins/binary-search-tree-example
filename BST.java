@@ -19,8 +19,8 @@ public class BST {
     }
 
     //BST Methods
-    public int getMin() {
-        Node current = root; 
+    public int getMin(Node n) {
+        Node current = n; 
         //traverse the tree
         while(current.left != null) {
             current = current.left;
@@ -29,8 +29,8 @@ public class BST {
     }
 
 
-    public int getMax() {
-        Node current = root; 
+    public int getMax(Node n) {
+        Node current = n; 
         //traverse the tree
         while(current.right != null) {
             current = current.right;
@@ -111,8 +111,11 @@ public class BST {
                 return n.left;
             }
             //case 3: node has 2 subtrees (2 children)
-
+            int replaceKey = getMin(n.right); 
+            n.key = replaceKey; 
+            n.right = delete(n.right, key); 
         }
+        return n; 
     }
 
 
