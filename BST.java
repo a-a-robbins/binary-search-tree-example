@@ -173,7 +173,17 @@ public class BST {
 
     //driver
     public static void main(String[] args) {
-        Node newNode = new Node(14); 
+        BST tree = new BST(); 
+
+        tree.insert(45); 
+        tree.insert(100); 
+        tree.insert(42); 
+        tree.insert(5); 
+        tree.insert(99); 
+        tree.insert(140); 
+        tree.insert(9); 
+        tree.insert(1); 
+        tree.printInOrder(); 
     }
     
 }
